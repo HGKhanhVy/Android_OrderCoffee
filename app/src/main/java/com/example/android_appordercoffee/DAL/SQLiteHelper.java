@@ -198,5 +198,54 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public void onOpen(SQLiteDatabase db) {
         super.onOpen(db);
     }
-
+    public int capNhatSLThucUong(CT_HoaDon_DTO cthd){
+        ContentValues values = new ContentValues();
+        values.put("MANUOC", cthd.getMaNuoc());
+        values.put("MAHOADON", cthd.getMaHoaDon());
+        values.put("TENNUOC", cthd.getTenNuoc());
+        values.put("SL", cthd.getSoLuong());
+        values.put("DONGIA", cthd.getDonGia());
+        values.put("THANHTIEN", cthd.getThanhTien());
+        SQLiteDatabase db = this.getWritableDatabase();
+        //String queryWhere ="MANUOC = "+cthd.getMaNuoc()+" AND MAHOADON = "+cthd.getMaHoaDon()+"";
+        //db.update("CT_HOADON", values, "MANUOC = "+cthd.getMaNuoc()+" AND MAHOADON = "+cthd.getMaHoaDon()+"", new String[] { "1" });
+        int kq =db.update("CT_HOADON", values, "MANUOC = ? AND MAHOADON = ?", new String[] { cthd.getMaNuoc(), cthd.getMaHoaDon() });
+        return kq;
+    }
+    public float getThanhTienCTHoaDon(String maHoaDon){
+        float sum =0;
+        SQLiteDatabase rdb = getReadableDatabase();
+        String query= "SELECT * FROM CT_HOADON WHERE MAHOADON ='"+maHoaDon+"'";
+        Cursor rs = rdb.rawQuery(query,null);
+        while(rs != null && rs.moveToNext()) {
+            float thanhTien = Float.valueOf(rs.getString(5).toString());
+            sum+= thanhTien;
+        }
+        return sum;
+    }
+    public int deleteAllCTHaDonByMaHoaDon( String maHoaDon){
+        SQLiteDatabase db = this.getWritableDatabase();
+        int kq = db.delete("CT_HOADON","MAHOADON=?",new String[]{maHoaDon});
+        return kq;
+    }
+    public HoaDon_DTO getHoaDonByMaHoaDon(String mahoa){
+        /*
+                "MAHOADON TEXT NOT NULL," +
+                "MANHANVIEN TEXT," +
+                "TENHOADON TEXT," +
+                "NGAYXUAT NUMERIC," +
+                "TRANGTHAI TEXT," +
+                "MABAN TEXT," +
+                "GIOVAO NUMERIC," +
+                "GIORA NUMERIC," +
+         */
+        SQLiteDatabase rdb = getReadableDatabase();
+        String query= "SELECT * FROM HOADON WHERE MAHOADON ='"+mahoa+"'";
+        Cursor rs = rdb.rawQuery(query,null);
+        HoaDon_DTO hd=null;
+        while(rs != null && rs.moveToNext()) {
+            hd = new HoaDon_DTO(rs.getString(0), rs.getString(5) , rs.getString(4), rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(7),rs.getString(6));
+        }
+        return hd;
+    }
 }
