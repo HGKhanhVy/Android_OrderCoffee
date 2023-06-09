@@ -130,8 +130,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
             int sl =Integer.parseInt(rs.getString(3).toString());
             float donGia =Float.valueOf(rs.getString(4).toString());
             float thanhTien = Float.valueOf(rs.getString(5).toString());
-            CT_HoaDon_DTO cthd = new CT_HoaDon_DTO(maHoaDon,maNuoc,tenNuoc,sl,donGia,thanhTien);
-            list.add(cthd);
+            //CT_HoaDon_DTO cthd = new CT_HoaDon_DTO(maHoaDon,maNuoc,tenNuoc,sl,donGia,thanhTien);
+            //list.add(cthd);
         }
         return list;
     }

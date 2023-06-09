@@ -80,13 +80,11 @@ public class FragmentSoDoBan_KhuA extends Fragment {//implements BanRecycleViewA
         });
     }
     private void handleGetMaBan(ArrayList<BanDTO> listA) {
-        if (!listA.isEmpty()) {
-            listBanA = listA;
-            ArrayList<BanDTO> listBan = listBanA;
-            adapter.setListBan(listBan);
-            GridLayoutManager manager = new GridLayoutManager(getContext(), 2);
-            recyclerView.setLayoutManager(manager);
-            recyclerView.setAdapter(adapter);
-        }
+        listBanA = listA;
+        ArrayList<BanDTO> listBan = listBanA;
+        adapter.setListBan(listBan);
+        GridLayoutManager manager = new GridLayoutManager(getContext(), 2);
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setAdapter(adapter);
     }
 }
