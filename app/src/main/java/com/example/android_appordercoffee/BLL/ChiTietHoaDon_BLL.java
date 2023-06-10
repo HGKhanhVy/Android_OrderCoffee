@@ -26,4 +26,15 @@ public class ChiTietHoaDon_BLL {
         }
         return true;
     }
+    public  int capNhatSLThucUong(CT_HoaDon_DTO ct){
+        return db.capNhatSLThucUong(ct);
+    }
+    public float getTongTien (String mahoadon){
+        return db.getThanhTienCTHoaDon(mahoadon);
+    }
+    public ArrayList<CT_HoaDon_DTO> getListCTHDByHoaDon(String MaHoaDon ){return db.getListCTHDByHoaDon(MaHoaDon);}
+    public int deleteAllCTHaDonByMaHoaDon(String maHoaDon){
+        return db.deleteAllCTHaDonByMaHoaDon( maHoaDon);
+    }
+
 }
