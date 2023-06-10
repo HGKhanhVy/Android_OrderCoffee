@@ -21,4 +21,6 @@ public class HoaDon_BLL {
     public HoaDon_DTO getHoaDonByMaHoaDon (String mahoa){
         return db.getHoaDonByMaHoaDon(mahoa);
     }
+    public String getMaHoaDonByMaBan (String MaBan){return db.getMaHoaDonByMaBan(MaBan);}
+    public int ThanhToanHoaDon(String maHD){ return  db.ThanhToanHoaDon( maHD );    }
 }

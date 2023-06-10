@@ -248,4 +248,38 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         }
         return hd;
     }
+    public int ThanhToanHoaDon(String maHD ){
+        ContentValues values = new ContentValues();
+        values.put("TRANGTHAI", "Da Thanh Toan");
+        SQLiteDatabase db = this.getWritableDatabase();
+        int kq =db.update("HOADON", values, "MAHOADON = ?", new String[] { maHD });
+        return kq;
+    }
+    public String getMaHoaDonByMaBan (String MaBan){
+        SQLiteDatabase rdb = getReadableDatabase();
+        String query= "SELECT * FROM HOADON WHERE MABAN ='"+MaBan+"'";
+        Cursor rs = rdb.rawQuery(query,null);
+        String MaHoaDon="";
+        while(rs != null && rs.moveToNext()) {
+            MaHoaDon =rs.getString(0).toString();
+        }
+        return MaHoaDon;
+    }
+    public int ghepBan(String TenHoaDon, String mahoadon){
+        /*
+                "MAHOADON TEXT NOT NULL," +
+                "MANHANVIEN TEXT," +
+                "TENHOADON TEXT," +
+                "NGAYXUAT NUMERIC," +
+                "TRANGTHAI TEXT," +
+                "MABAN TEXT," +
+                "GIOVAO NUMERIC," +
+                "GIORA NUMERIC," +
+        */
+        ContentValues values = new ContentValues();
+        values.put("TENHOADON", TenHoaDon);
+        SQLiteDatabase db = this.getWritableDatabase();
+        int kq =db.update("HOADON", values, "MAHOADON = ?", new String[] { mahoadon });
+        return kq;
+    }
 }

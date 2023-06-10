@@ -18,10 +18,13 @@ import java.util.ArrayList;
 
 public class BanBLL {
     private BanDAL QLBan;
+    SQLiteHelper db ;
+    public BanBLL(Context context1){
+        db = new SQLiteHelper(context1);
+    }
     public BanBLL() {
         QLBan = new BanDAL();
     }
-
     public void getMaBanKhuA(final GetMaBanCallback callback) {
         QLBan.getMaBanKhuA(new GetMaBanCallback() {
             @Override
@@ -59,6 +62,9 @@ public class BanBLL {
                 callback.onError();
             }
         });
+    }
+    public int ghepBan(String TenHoaDon, String mahoadon){
+        return db.ghepBan(TenHoaDon,mahoadon);
     }
 }
 
