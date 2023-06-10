@@ -282,4 +282,13 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         int kq =db.update("HOADON", values, "MAHOADON = ?", new String[] { mahoadon });
         return kq;
     }
+    public long addBan(BanDTO ban) {
+        String trangthai = ban.getTrangThai();
+
+        ContentValues values = new ContentValues();
+        values.put("MABAN", ban.getMaBan());
+        values.put("TRANGTHAI", ban.getTrangThai());
+        SQLiteDatabase db = getWritableDatabase();
+        return db.insert("BAN", null, values);
+    }
 }

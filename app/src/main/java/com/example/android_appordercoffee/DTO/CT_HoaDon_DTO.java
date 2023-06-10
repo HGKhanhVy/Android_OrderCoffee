@@ -6,6 +6,14 @@ public class CT_HoaDon_DTO implements Serializable {
     private String MaHoaDon, _maNuoc,_tenNuoc;
     int SoLuong;
     float DonGia, ThanhTien;
+    public  CT_HoaDon_DTO(String MaHoaDon , String MaSP, String TenSp, int SoLuong, float DonGia,float ThanhTien){
+        this.MaHoaDon = MaHoaDon;
+        this._maNuoc = MaSP;
+        this._tenNuoc = TenSp;
+        this.SoLuong = SoLuong;
+        this. DonGia = DonGia;
+        this.ThanhTien = ThanhTien;
+    }
     public CT_HoaDon_DTO(String MaHoaDon , String MaNuoc, String TenNuoc, int SoLuong, float DonGia){
         this.MaHoaDon = MaHoaDon;
         this._maNuoc = MaNuoc;

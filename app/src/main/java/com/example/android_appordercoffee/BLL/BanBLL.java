@@ -66,6 +66,9 @@ public class BanBLL {
     public int ghepBan(String TenHoaDon, String mahoadon){
         return db.ghepBan(TenHoaDon,mahoadon);
     }
+    public long addBan(BanDTO ban) {
+        return db.addBan(ban);
+    }
 }
 
 

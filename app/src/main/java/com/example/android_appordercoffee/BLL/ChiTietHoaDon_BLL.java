@@ -36,5 +36,4 @@ public class ChiTietHoaDon_BLL {
     public int deleteAllCTHaDonByMaHoaDon(String maHoaDon){
         return db.deleteAllCTHaDonByMaHoaDon( maHoaDon);
     }
-
 }

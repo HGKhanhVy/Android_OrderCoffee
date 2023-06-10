@@ -8,6 +8,10 @@ public class BanDTO implements Serializable { // do phai gui di gui lai
     String trangThai;
     public BanDTO() {
     }
+    public BanDTO(String maBan, String trangThai) {
+        this.maBan = maBan;
+        this.trangThai = trangThai;
+    }
 
     public BanDTO(String maBan, String tenBan, String trangThai) {
         this.maBan = maBan;
