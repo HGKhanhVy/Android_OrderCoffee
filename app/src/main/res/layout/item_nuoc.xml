@@ -2,29 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@drawable/background_spinner">
-    <TextView
-        android:id="@+id/txt_TenNuoc"
+    android:orientation="vertical">
+    <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txt_TenNuoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên nước"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/txt_Size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/txt_TenNuoc"
+            android:text="(size)"
+            android:layout_marginStart="10dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/txt_Gia"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Tên nước"
+        android:layout_marginTop="5dp"
+        android:text="Giá"
         android:textSize="20sp"
         android:textColor="@color/black"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/txt_Gia"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Giá"
-            android:textSize="20sp"
-            android:textColor="@color/black"/>
         <ImageView
             android:id="@+id/dauTru"
-            android:layout_toEndOf="@+id/txt_Gia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -36,7 +47,7 @@
             android:layout_marginTop="3dp"
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@+id/dauTru"
-            android:text="1"
+            android:text="0"
             android:textSize="25sp"
             android:textColor="@color/black"/>
         <ImageView
@@ -47,5 +58,13 @@
             android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
             android:src="@drawable/baseline_add_box_24"/>
+        <Button
+            android:id="@+id/btnThem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/dauCong"
+            android:layout_marginStart="180dp"
+            android:textColor="@color/black"
+            android:text="Thêm" />
     </RelativeLayout>
 </LinearLayout>

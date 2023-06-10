@@ -3,6 +3,8 @@ package com.example.android_appordercoffee.API;
 import android.widget.Toast;
 
 import com.example.android_appordercoffee.DTO.BanDTO;
+import com.example.android_appordercoffee.DTO.CT_HoaDon_DTO;
+import com.example.android_appordercoffee.DTO.HoaDon_DTO;
 import com.example.android_appordercoffee.DTO.Login;
 import com.example.android_appordercoffee.DTO.NhanVienDTO;
 import com.example.android_appordercoffee.DTO.ThucUongDTO;
@@ -27,7 +29,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiService {
-    // Link API: https://cd7a-2405-4802-911f-b710-acae-6fb1-f822-e027.ngrok-free.app/swagger/index.html
+    // Link API: https://5fb3-2405-4802-911f-b710-f9c6-a1f0-6adb-6483.ngrok-free.app/swagger/index.html
 
     // Khởi tạo Gson
     Gson gson = new GsonBuilder()
@@ -36,7 +38,7 @@ public interface ApiService {
             .create();
     // Khởi tạo Retrofit
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://cd7a-2405-4802-911f-b710-acae-6fb1-f822-e027.ngrok-free.app/")
+            .baseUrl("https://5fb3-2405-4802-911f-b710-f9c6-a1f0-6adb-6483.ngrok-free.app/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build();
     // API login
@@ -71,4 +73,16 @@ public interface ApiService {
     // API lấy thức uống
     @GET("ThucUong/GetAllNuoc")
     Call<List<ThucUongDTO>> getAllThucUong();
+
+    // API thêm hóa đơn
+    @POST("HoaDon/ThemHD")
+    Call<String> themHD(@Body HoaDon_DTO hd);
+
+    // API thêm chi tiết hóa đơn
+    @POST("ChiTietHoaDon/ThemCTHD")
+    Call<String> themCT_HD(@Body CT_HoaDon_DTO hd);
+
+    // API lấy mã thức uống
+    @GET("ThucUong/GetMaNuoc")
+    Call<String> getMaNuoc(@Query("tenNuoc") String tenCV, @Query("size") String size);
 }

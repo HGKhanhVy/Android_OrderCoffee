@@ -62,7 +62,13 @@ public class ChiTietHoaDonActivity extends AppCompatActivity {
         hoadonBLL.AddHoaDon(hd1);
         hoadonBLL.AddHoaDon(hd2);
 
+<<<<<<< HEAD
+        //khởi tạo data
+        //String MaHoaDon , String MaSP, String TenSp, int SoLuong, float DonGia,float ThanhTien
+        /*CT_HoaDon_DTO CTHD1 = new CT_HoaDon_DTO("HD002", "SP001", "Sữa Tươi", 1, 15000.0f, 15000.0f);
+=======
         CT_HoaDon_DTO CTHD1 = new CT_HoaDon_DTO("HD002", "SP001", "Sữa Tươi", 1, 15000.0f, 15000.0f);
+>>>>>>> 783ba7dec5ca83bdd955dc115a72f2efa87c9283
         CT_HoaDon_DTO CTHD2 = new CT_HoaDon_DTO("HD002", "SP002", "Cafe sữa", 1, 18000.0f, 18000.0f);
         CT_HoaDon_DTO CTHD3 = new CT_HoaDon_DTO("HD002", "SP003", "Coca", 1, 12000.0f, 12000.0f);
         CT_HoaDon_DTO CTHD21 = new CT_HoaDon_DTO("HD002", "SP004", "Sting", 1, 15000.0f, 15000.0f);
@@ -131,6 +137,9 @@ public class ChiTietHoaDonActivity extends AppCompatActivity {
         txtTongThanhToan.setText(ThemDauCham((int)tong)+"đ");
         txtMaHoaDon.setText("Mã Hóa Đơn: "+maHD);
         ChiTietHoaDon_Adapter perAdapter = new ChiTietHoaDon_Adapter(this, lstCTHoaDon);
+<<<<<<< HEAD
+        listView.setAdapter(perAdapter);*/
+=======
         listView.setAdapter(perAdapter);
 
         btnGhepBan.setOnClickListener(new View.OnClickListener() {
@@ -205,5 +214,6 @@ public class ChiTietHoaDonActivity extends AppCompatActivity {
         double amount = (double)tien;
         DecimalFormat formatter = new DecimalFormat("#,##0");
         return formatter.format(amount);
+>>>>>>> 783ba7dec5ca83bdd955dc115a72f2efa87c9283
     }
 }
